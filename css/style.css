@@ -1,0 +1,49 @@
+/* Cosmetic styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid hsl(0deg 0% 50%);
+}
+
+label {
+    font-weight: 500;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    height: 2.5rem;
+    flex-grow: 1;
+    flex-basis: 70px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.center {
+    align-self: center;
+}
+
+#generated_psw {
+    display: block;
+    height: 2.5rem;
+    width: 300px;
+    text-align: center;
+}
+
+#pswlength {
+    display: inline-block;
+    width: 80px;
+    margin-top: 4px;
+}
