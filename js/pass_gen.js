@@ -1,3 +1,4 @@
+window.addEventListener("load", resetElements)
 window.addEventListener("load", function (e) {
     NumberInput = document.getElementById("pswlength");
     NumberInput.addEventListener("keydown", isNumberKeyorEnter);
@@ -14,3 +15,10 @@ function isNumberKeyorEnter(evt) {
     this.value = newValue;
 };
 
+function resetElements() {
+    var inputs = document.querySelectorAll('input[type=text]');
+    inputs.forEach((element) => { element.value = ""; })
+
+    var inputs_checkbox = document.querySelectorAll('input[type=checkbox]');
+    inputs_checkbox.forEach((element) => { element.checked = false })
+}
