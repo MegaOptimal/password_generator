@@ -9,6 +9,7 @@ This is a small password generator web page which uses JavaScript and [Web Crypt
 ## Dependencies
 
 * Crypto API.
+* password-strength (added locally).
 
 ## License
 
@@ -17,3 +18,4 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 ## Acknowledgments
 
 * [This template](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
+* [password-strength](https://github.com/tests-always-included/password-strength)
