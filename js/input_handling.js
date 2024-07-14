@@ -10,7 +10,7 @@ function isNumberKeyorEnter(evt) {
         evt.preventDefault();
         return false;
     }
-    var allowedChars = "123456789";
+    var allowedChars = "0123456789";
     var newValue = Array.from(this.value).filter(f => allowedChars.includes(f)).join('');
     this.value = newValue;
 };
