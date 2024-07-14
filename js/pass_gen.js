@@ -1,4 +1,4 @@
-window.addEventListener("load", function (e) { document.getElementById("btn_generate_psw").addEventListener("click", GeneratePassword) })
+window.addEventListener("load", function (e) { window.passwordChecker = new PasswordStrength(); document.getElementById("btn_generate_psw").addEventListener("click", GeneratePassword) })
 
 function GeneratePassword() {
     const logograms = "#$%&@^`~";
@@ -34,4 +34,26 @@ function GeneratePassword() {
 
     var password_html_space = document.getElementById("generated_psw");
     password_html_space.value = password
+    CheckPswStrength(password);
+}
+
+function CheckPswStrength(password) {
+    //https://www.color-hex.com/color-palette/4837
+    const color_values = {
+        "VERY_WEAK": "#ff8c5a",
+        "WEAK": "#ffb234",
+        "REASONABLE": "#ffd934",
+        "STRONG": "#add633",
+        "VERY_STRONG": "#a0c15a"
+    }
+    const GOOD_BIT_VALUE = 128; //Arbitrary
+    var passwordStrengthObject = window.passwordChecker.check(password)
+    var passwordClassification = passwordStrengthObject.strengthCode
+    var passwordBits = passwordStrengthObject.shannonEntropyBits
+    var progressBar = document.getElementById("progress");
+    var passwordQuality = document.getElementById("pass_quality");
+    passwordBits < GOOD_BIT_VALUE ? BarWidth = Math.floor((passwordBits / GOOD_BIT_VALUE) * 100) : BarWidth = "100";
+    progressBar.style.width = BarWidth + "%";
+    progressBar.style.backgroundColor = color_values[passwordClassification];
+    passwordQuality.innerHTML = "Password Quality: " + passwordClassification;
 }
