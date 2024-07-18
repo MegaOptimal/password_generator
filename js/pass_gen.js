@@ -55,5 +55,7 @@ function CheckPswStrength(password) {
     passwordBits < GOOD_BIT_VALUE ? BarWidth = Math.floor((passwordBits / GOOD_BIT_VALUE) * 100) : BarWidth = "100";
     progressBar.style.width = BarWidth + "%";
     progressBar.style.backgroundColor = color_values[passwordClassification];
+    passwordClassification = passwordClassification.toLowerCase().replace("_"," ") //Stylize
+    passwordClassification = passwordClassification[0].toUpperCase() + passwordClassification.slice(1); //Capitalize
     passwordQuality.innerHTML = "Password Quality: " + passwordClassification;
 }
