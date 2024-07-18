@@ -1,8 +1,10 @@
 window.addEventListener("load", resetElements)
 window.addEventListener("load", function (e) {
     NumberInput = document.getElementById("pswlength");
-    NumberInput.addEventListener("keydown", isNumberKeyorEnter);
-    NumberInput.addEventListener("change", isNumberKeyorEnter);
+    NumberInput.addEventListener("input", isNumberKeyorEnter);
+    SliderInput = document.getElementById("pswlength_range");
+    SliderInput.addEventListener("input", SliderInputCoordinator);
+    NumberInput.addEventListener("input", SliderInputCoordinator);
 })
 
 function isNumberKeyorEnter(evt) {
@@ -21,4 +23,14 @@ function resetElements() {
 
     var inputs_checkbox = document.querySelectorAll('input[type=checkbox]');
     inputs_checkbox.forEach((element) => { element.checked = false })
+}
+
+function SliderInputCoordinator(){
+    NumberInput = document.getElementById("pswlength");
+    SliderInput = document.getElementById("pswlength_range");
+    if (SliderInput === this){
+        NumberInput.value = SliderInput.value;
+    }else {
+        SliderInput.value = +NumberInput.value;
+    }
 }

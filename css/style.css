@@ -45,7 +45,7 @@ button {
 
 #pswlength {
     display: inline-block;
-    width: 80px;
+    width: 40px;
     margin-top: 4px;
 }
 
@@ -63,4 +63,8 @@ button {
     background-color: #f0f0f0;
     transition: width 0.3s ease;
     border-radius: 15px;
+}
+
+.slider {
+    height: 8px; /* Specified height */
 }
